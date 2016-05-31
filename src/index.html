@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Image Stretcher</title>
+    <style>
+      body{background:gainsboro;}
+      body>*{margin-bottom:10px;width:300px;}
+      fieldset{border:1px solid silver;}
+      #cropper{position:relative;width:256px;height:256px;border:1px solid #eee;}
+      #sizes>li{line-height:1.5;}
+      .pull-right{float:right;}
+    </style>
+  </head>
+  <body>
+    <h1>Image Stretcher</h1>
+    <div id="cropper"></div>
+    <div><input type="file"></div>
+    <fieldset>
+      <legend>Sizes</legend>
+      <ul id="sizes"></ul>
+      <button id="btnAddSize">Add</button>
+    </fieldset>
+    <div>
+      <button id="btnExport">Export</button>
+    </div>
+    <div>
+      <canvas id="preview"></canvas>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
