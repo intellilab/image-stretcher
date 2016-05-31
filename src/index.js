@@ -70,11 +70,18 @@ $('#sizes').addEventListener('click', e => {
 $('#btnExport').addEventListener('click', e => {
   const sizeList = sizes.get();
   const canvas = document.createElement('canvas');
+  var filenamePattern = $('#filename').value;
+  if (!/\.png$/i.test(filenamePattern)) filenamePattern += '.png';
   sizeList.length && download(sizeList.map(size => {
     canvas.width = canvas.height = size;
     drawImage(canvas, canvasResult, size);
+    const locals = {
+      size,
+    };
     return {
-      name: size + '.png',
+      name: filenamePattern.replace(/\[(\w+)\]/g, (match, key) => {
+        return locals[key] || '';
+      }),
       data: canvas.toDataURL().split(',')[1],
       options: {base64: true},
     };
