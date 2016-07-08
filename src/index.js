@@ -44,9 +44,9 @@ var canvasResult;
 
 const cropper = ImageCropper.create({
   container: $('#cropper'),
-  onCrop: canvas => {
-    canvasResult = canvas;
-    drawImage(canvasPreview, canvas, PREVIEW_SIZE);
+  onCrop: cropData => {
+    canvasResult = cropData.getCanvas();
+    drawImage(canvasPreview, canvasResult, PREVIEW_SIZE);
   },
 });
 
